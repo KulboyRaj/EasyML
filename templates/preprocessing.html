@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+  <title>data preprocessing</title>
+  <meta content="" name="description" />
+  <meta content="" name="keywords" />
+
+  <!-- Favicons -->
+  <link href="/static/assets/img/favicon.ico" rel="icon" />
+  <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css" />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet" />
+  <!-- fsdvfcjh -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.min.js"></script>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" />
+  <!-- sxvc -->
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <!--  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">-->
+  <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link href="static/assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+  <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css" />
+
+  <link rel="stylesheet" href="static/assets/css/preprocessing.css" />
+</head>
+
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      <h1 class="logo"><a href="index.html">EasyML</a></h1>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/">Home</a></li>
+          <li><a class="nav-link scrollto" href="/#about">About</a></li>
+          <li><a class="nav-link scrollto" href="/#services">Services</a></li>
+          <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
+          <li>
+            <a class="getstarted scrollto" href="/cardsindex.html">Get Started</a>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      <!-- .navbar -->
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+      <div class="row justify-content-center">
+        <div class="container text-center">
+          <div class="row icon-boxes justify-content-center">
+            <!-- First icon box -->
+            <div class="background">
+              <div class="icon-box">
+                <form method="POST" enctype="multipart/form-data" action="/preprocessing.html">
+                  <div class="form-group">
+                    <label for="file" id="csvupload">Upload CSV File<input type="file" class="form-control-file"
+                        name="file" id="file" accept=".csv" /></label>
+                    <br />
+                    <!-- <label id="MULTISELECT">missingget Variable:
+                    </label> -->
+
+                    <!-- <label for="" id="multiselect">Select Technique
+                          <select id="mltislct" multiple="multiple">
+                            <option id="techlist">Missing values</option>
+                            <option id="techlist">Scaling</option>
+                            <option id="techlist">Feature Engineering</option>
+                            <option id="techlist">Normalization</option>
+                            <option id="techlist">Categorical Encoding</option>
+                            <option id="techlist">Handling Outliers</option>
+                          </select>
+                        </label> -->
+                    <div>
+                      <label>
+                        <!--                          <input type="checkbox" name="option" value="Missing value"> Missing value-->
+                        <input type="checkbox" name="option" value="Load and Clean Dataset" />
+                        Missing values
+                      </label>
+                      <div style="position: relative; display: inline-block">
+                        <!-- Question mark icon -->
+                        <div style="
+                              display: inline-block;
+                              margin-left: 15px;
+                              width: 15px;
+                              height: 15px;
+                              background-color: black;
+                              color: white;
+                              border-radius: 50%;
+                              text-align: center;
+                              line-height: 15px;
+                              cursor: pointer;
+                            " onmouseover="document.getElementById('tooltipText').style.visibility = 'visible';"
+                          onmouseout="document.getElementById('tooltipText').style.visibility = 'hidden';">
+                          ?
+                        </div>
+                        <!-- Tooltip text -->
+                        <span id="tooltipText" style="
+                              visibility: hidden;
+                              width: 200px;
+                              background-color: black;
+                              color: white;
+                              text-align: center;
+                              border-radius: 6px;
+                              padding: 5px;
+                              position: absolute;
+                              z-index: 1;
+                              bottom: 125%;
+                              left: 50%;
+                              margin-left: -60px;
+                              opacity: 1;
+                            ">
+                          Missing values occur when there are no data values in one or more columns of a dataset.
+                          Dealing with missing values is an essential preprocessing step, and it can be addressed by
+                          various techniques such as imputation or deletion.
+
+                        </span>
+                      </div>
+                    </div>
+                    <div>
+                      <label>
+                        <input type="checkbox" name="option" value="Label Encode Features" />
+                        Label Encoding
+                      </label>
+                      <div style="position: relative; display: inline-block">
+                        <div style="
+                              display: inline-block;
+                              margin-left: 15px;
+                              width: 15px;
+                              height: 15px;
+                              background-color: black;
+                              color: white;
+                              border-radius: 50%;
+                              text-align: center;
+                              line-height: 15px;
+                              cursor: pointer;
+                            " onmouseover="document.getElementById('tooltipLabelEncode').style.visibility = 'visible';"
+                          onmouseout="document.getElementById('tooltipLabelEncode').style.visibility = 'hidden';">
+                          ?
+                        </div>
+                        <span id="tooltipLabelEncode" style="
+                              visibility: hidden;
+                              width: 200px; /* Adjust the width as needed */
+                              background-color: black;
+                              color: white;
+                              text-align: center;
+                              border-radius: 6px;
+                              padding: 10px; /* Adjust the padding as needed */
+                              position: absolute;
+                              z-index: 1;
+                              bottom: 125%;
+                              left: 50%;
+                              margin-left: -100px; /* Adjust the margin as needed */
+                              opacity: 1;
+                            ">
+                          Label Encoding is a technique used to convert
+                          categorical data into numerical format. It assigns a
+                          unique numerical value to each category, making it
+                          easier for machine learning algorithms to process
+                          the data.
+                        </span>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label>
+                        <input type="checkbox" name="option" value="Min-Max Scaling" />
+                        Min-Max Scaling
+                      </label>
+                      <div style="position: relative; display: inline-block">
+                        <div style="
+                              display: inline-block;
+                              margin-left: 15px;
+                              width: 15px;
+                              height: 15px;
+                              background-color: black;
+                              color: white;
+                              border-radius: 50%;
+                              text-align: center;
+                              line-height: 15px;
+                              cursor: pointer;
+                            "
+                          onmouseover="document.getElementById('tooltipMinMaxScaling').style.visibility = 'visible';"
+                          onmouseout="document.getElementById('tooltipMinMaxScaling').style.visibility = 'hidden';">
+                          ?
+                        </div>
+                        <span id="tooltipMinMaxScaling" style="
+                              visibility: hidden;
+                              width: 200px; /* Adjust the width as needed */
+                              background-color: black;
+                              color: white;
+                              text-align: center;
+                              border-radius: 6px;
+                              padding: 10px; /* Adjust the padding as needed */
+                              position: absolute;
+                              z-index: 1;
+                              bottom: 125%;
+                              left: 50%;
+                              margin-left: -100px; /* Adjust the margin as needed */
+                              opacity: 1;
+                            ">
+                          Min-Max Scaling is a technique used to scale
+                          features to a range between 0 and 1. It helps in
+                          handling features with different scales and brings
+                          them to a common scale, which can improve the
+                          performance of certain machine learning algorithms.
+                        </span>
+                      </div>
+                    </div>
+
+                    <!-- Repeat the above structure for each remaining preprocessing option -->
+
+                    <div>
+                      <label>
+                        <input type="checkbox" name="option" value="PCA" />
+                        PCA
+                      </label>
+                      <div style="position: relative; display: inline-block">
+                        <div style="
+                              display: inline-block;
+                              margin-left: 15px;
+                              width: 15px;
+                              height: 15px;
+                              background-color: black;
+                              color: white;
+                              border-radius: 50%;
+                              text-align: center;
+                              line-height: 15px;
+                              cursor: pointer;
+                            " onmouseover="document.getElementById('tooltipPCA').style.visibility = 'visible';"
+                          onmouseout="document.getElementById('tooltipPCA').style.visibility = 'hidden';">
+                          ?
+                        </div>
+                        <span id="tooltipPCA" style="
+                              visibility: hidden;
+                              width: 200px; /* Adjust the width as needed */
+                              background-color: black;
+                              color: white;
+                              text-align: center;
+                              border-radius: 6px;
+                              padding: 10px; /* Adjust the padding as needed */
+                              position: absolute;
+                              z-index: 1;
+                              bottom: 125%;
+                              left: 50%;
+                              margin-left: -100px; /* Adjust the margin as needed */
+                              opacity: 1;
+                            ">
+                          Principal Component Analysis (PCA) is a
+                          dimensionality reduction technique used to reduce
+                          the number of features in a dataset while preserving
+                          most of its variance. It helps in simplifying the
+                          dataset and speeding up the computation in machine
+                          learning algorithms.
+                        </span>
+                      </div>
+                    </div>
+                    <div>
+                      <label>
+                        <input type="checkbox" name="option" value="Log Transformation" />
+                        Log Transformation
+                      </label>
+                      <div style="position: relative; display: inline-block">
+                        <div style="
+                              display: inline-block;
+                              margin-left: 15px;
+                              width: 15px;
+                              height: 15px;
+                              background-color: black;
+                              color: white;
+                              border-radius: 50%;
+                              text-align: center;
+                              line-height: 15px;
+                              cursor: pointer;
+                            "
+                          onmouseover="document.getElementById('tooltipLogTransformation').style.visibility = 'visible';"
+                          onmouseout="document.getElementById('tooltipLogTransformation').style.visibility = 'hidden';">
+                          ?
+                        </div>
+                        <span id="tooltipLogTransformation" style="
+                              visibility: hidden;
+                              width: 200px; /* Adjust the width as needed */
+                              background-color: black;
+                              color: white;
+                              text-align: center;
+                              border-radius: 6px;
+                              padding: 10px; /* Adjust the padding as needed */
+                              position: absolute;
+                              z-index: 1;
+                              bottom: 125%;
+                              left: 50%;
+                              margin-left: -100px; /* Adjust the margin as needed */
+                              opacity: 1;
+                            ">
+
+                          Log transformation is a technique to stabilize the variance of a dataset and make it more
+                          normally distributed. It involves replacing each data value
+                          x with its logarithm log(x).
+                        </span>
+                      </div>
+                    </div>
+
+                    <!-- Repeat the above structure for each remaining preprocessing option -->
+
+                    <div>
+                      <label>
+                        <input type="checkbox" name="option" value="Normalize Data" />
+                        Normalize Data
+                      </label>
+                      <div style="position: relative; display: inline-block">
+                        <div style="
+                              display: inline-block;
+                              margin-left: 15px;
+                              width: 15px;
+                              height: 15px;
+                              background-color: black;
+                              color: white;
+                              border-radius: 50%;
+                              text-align: center;
+                              line-height: 15px;
+                              cursor: pointer;
+                            "
+                          onmouseover="document.getElementById('tooltipNormalizeData').style.visibility = 'visible';"
+                          onmouseout="document.getElementById('tooltipNormalizeData').style.visibility = 'hidden';">
+                          ?
+                        </div>
+                        <span id="tooltipNormalizeData" style="
+                              visibility: hidden;
+                              width: 200px; /* Adjust the width as needed */
+                              background-color: black;
+                              color: white;
+                              text-align: center;
+                              border-radius: 6px;
+                              padding: 10px; /* Adjust the padding as needed */
+                              position: absolute;
+                              z-index: 1;
+                              bottom: 125%;
+                              left: 50%;
+                              margin-left: -100px; /* Adjust the margin as needed */
+                              opacity: 1;
+                            ">
+                          Normalization is a technique used to scale numerical
+                          features to a standard range, typically between 0
+                          and 1. It helps in bringing all features to a
+                          similar scale, which can improve the performance of
+                          certain machine learning algorithms, especially
+                          those sensitive to feature scales.
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <button class="button-78" onclick="getSelectedOptions()" role="button">
+                      process
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- End Hero -->
+
+  <!--   ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-12 footer-info">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <img src="/static/assets/img/logo.png" alt="" />
+              <span>EasyML</span>
+            </a>
+            <h5>
+              <b>Bringing Machine Learning within Reach for Everyone</b>
+            </h5>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li>
+                <i class="bi bi-chevron-right"></i> <a href="#">Home</a>
+              </li>
+              <li>
+                <i class="bi bi-chevron-right"></i> <a href="#">About us</a>
+              </li>
+              <li>
+                <i class="bi bi-chevron-right"></i> <a href="#">Services</a>
+              </li>
+              <li>
+                <i class="bi bi-chevron-right"></i> <a href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="/regression.html">Regression</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/preprocessing.html">Data preprocessing</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/visualize.html">Visualiation</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/classification">Classification</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/imageClassification">Image Classification</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <h4>Contact Us</h4>
+            <p>
+              <strong>Phone:</strong> +91 78208666043<br />
+              <strong>Email:</strong>pruthvirajbanne@gmail.com<br />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>EasyML</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="https://kulboyraj.com/">KBR Solutions</a>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="static/assets/vendor/aos/aos.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/assets/js/preprocessing.js"></script>
+  <script>
+    function getSelectedOptions() {
+      var selectedOptions = [];
+      var options = document.getElementsByName("option");
+
+      for (var i = 0; i < options.length; i++) {
+        if (options[i].checked) {
+          selectedOptions.push(options[i].value);
+        }
+      }
+
+      console.log("Selected Options: ", selectedOptions);
+    }
+  </script>
+</body>
+
+</html>
