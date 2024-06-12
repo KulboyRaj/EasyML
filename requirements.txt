@@ -1,6 +1,6 @@
 Flask==2.0.1
 Werkzeug==2.2.2
-sklearn
+scikit-learn
 matplotlib
 tensorflow
 keras
