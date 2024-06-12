@@ -8,7 +8,6 @@ Pillow
 seaborn
 pandas
 numpy
-zipfile
 pickle
 os
 io
