@@ -8,9 +8,7 @@ Pillow
 seaborn
 pandas
 numpy
-pickle
-os
-io
+
 
 
 
